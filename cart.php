@@ -67,7 +67,7 @@ if(isset($_POST['remove'])){
                                 <td class="name_column"><p class="item_name"><?php echo $row['ten_sp']; ?></p></td>
                                 <td class="price_column"><p class="item_price"><?php echo $row['gia_sp']; ?></p></td>
                                 <td class="quantity_column"><input type="number" class='item_quantity' name='quantity' value='1' ></td>
-                                <td class="total_column"><input type="text" class='item_total' value="5000" disabled></td>
+                                <td class="total_column"><input type="text" class='item_total' value="" disabled></td>
                             </tr>   
                             </form>
                         <?php 
