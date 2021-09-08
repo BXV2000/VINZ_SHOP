@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+body{
+    font-family: 'Arimo', sans-serif; 
+}
+
+
+.login_container {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0px 13px 18px -5px rgba(0, 0, 0, 0.26);
+  }
+  
+  .contact_area {
+    margin-left: 10em;
+  }
+  
+  .contact_area > a {
+
+  }
+  
+  .contact_area > a>img {
+    width: 5em;
+  }
+  
+  .function_area {
+    margin-right: 10em;
+  }
+  
+  .function_area > a {
+    text-decoration: none;
+    margin: 0 1em;
+    color: #adaaaa;
+    transition: 0.3s;
+  }
+  .function_area > a:hover {
+    color: #8BD25A;
+  }
+
+
+  #cart_number{
+    color:white;
+    background-color: #8BD25A ;
+    border-radius: 50%;
+    padding: 0.3em 0.5em;
+  }

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Arimo', sans-serif; 
+
+}
+
+
+/* HEADER SECTION */
+.index_container {
+    margin-top: 85px;
+}
+.header_area{
+  background: url("./img/header_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header_area>*{
+
+}
+
+.header_area>h1{
+  font-size: 49px;
+  width: 14em;
+  line-height: 66px;
+  margin: 0.5em 1.5em;
+  color: #342828;
+}
+
+.header_area>p{
+  font-size: 30px;
+  color: #585454;
+  margin: 0em 2.5em;
+}
+
+.header_buttons{
+  margin: 3em 5em ;
+}
+
+.header_buttons>a{
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.header_order_button{
+  background-color: #FE4858;
+  border:0.1em solid #FE4858 ;
+  color: white;
+  border-radius: 3em;
+  padding: 1em 2.5em;
+  margin: 0em;
+  transition: 0.3s;
+}
+
+.header_order_button:hover{
+  background-color: white;
+  color:#FE4858 ;
+}
+
+.header_explore_button{
+  color: #FE4858;
+  background-color: white;
+  border:0.1em solid #FE4858 ;
+  border-radius: 3em;
+  padding: 1em 3.5em;
+  margin: 0.5em;
+  transition: 0.3s;
+}
+
+.header_explore_button:hover{
+  color: white;
+  background-color:  #FE4858 ;
+
+}
+/* HEADER SECTION */
+
+/* REASON SECTION */
+ 
+.reason_area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  position: relative;
+ 
+}
+
+.reason_area::after{
+  content: "";
+  background-image: url(./img/reason_area_background.png);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.reason_area_label>h1{
+  color: #342828;
+}
+
+
+
+.reason_area_contents{
+  display: flex;
+  flex-direction: row;
+}
+
+.reason_content{
+  display: flex;
+  flex-direction: column;
+  margin: 3em 2em;
+  width: 20em;
+  height: 30em;
+  border-radius: 1em;
+  color: white;
+}
+
+.reason_content>img{
+  max-height: 13em;
+  border-radius: 1em 1em 0 0;
+}
+
+.reason_text{
+  margin: 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reason_text>h2{
+  margin:0.5em 0;
+}
+
+.reason_button{
+  background-color: white;
+  text-decoration: none;
+  padding: 0.75em 1em;
+  border-radius: 4em;
+  transition: 0.3s;
+  border:0.1em transparent solid;
+}
+
+.reason_button:hover{
+  background-color:transparent;
+  color: white !important;
+  border:0.1em white solid;
+}
+
+/* REASON SECTION */
