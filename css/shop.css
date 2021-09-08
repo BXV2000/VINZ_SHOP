@@ -1,129 +1,145 @@
-.shop_container {
-  margin-top: 120px;
-  display: flex;
-  flex-direction: column;
-}
-.product_area {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+body{
+    font-family: 'Arimo', sans-serif; 
 }
 
-.product_area_left {
-  flex-basis: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.shop_container{
+    margin-top: 85px;
 }
 
-.side_bar > ul {
-  list-style: none;
-  padding: 0;
+/* LABEL AREA  */
+
+.label_area{
+    padding: 2em 10em;
+    background-color: #F9F9FA;
+    border: 0.1em rgb(186, 186, 186);
+    border-style: dashed none;
 }
 
-.product_tag {
-  display: flex;
-  flex-direction: column;
+/* LABEL AREA  */
+
+/* -------------------------------------------------------- */
+
+/* SHOP AREA */
+
+.shop_area{
+    display: flex;
+    flex-direction: row;
+    margin: 5em 0;
+    justify-content: center;
 }
 
-.product_area_right {
-  flex-basis: 65%;
-  border: 0.2em gray solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* PRODUCT AREA */
+
+.product_area{
+    flex-basis: 65%;
 }
 
-.product_area_right > .product_category {
-  align-self: flex-start;
-  padding-left: 0.5em;
+.products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
 
-.page_indicator {
-  border: 0;
-  background-color: white;
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 240px;
+    position: relative;
+    margin: 1em 2em;
 }
 
-.page_button {
-  cursor: pointer;
-  border: 0;
-  border: solid 1px gray;
-  background-color: white;
+.product:hover .product_price {
+    visibility: hidden;
+    opacity: 0;
 }
 
-.page_button:hover {
-  background-color: rgb(209, 209, 209);
+.product:hover .product_add{
+   visibility: visible;
+   opacity: 1;
 }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  height: 50em;
+.product>*{
+    cursor: pointer;
 }
 
-.product {
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  flex-direction: column;
-  align-items: center;
-  margin: 1em 3em;
-  width: 8em;
-  height: 13em;
+.product_name{
+    margin-bottom: 0;
+    color:#342828;
+    transition: 0.3s;
 }
 
-.product_buttons {
-  position: absolute;
-  flex-direction: column;
-  transition: all 1s ease;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.2s linear;
+.product_name:hover{
+    color:#B1AEAE;
 }
 
-.product_buttons > * {
-  cursor: pointer;
-  border: 0;
-  border: solid 0.1em gray;
-  background-color: white;
-  padding: 0.5em;
-  margin: 0.5em;
+.product_tag{
+    margin-top: 0.5em;
+    color:#342828;
+    transition: 0.3s;
 }
 
-.product_buttons > *:hover {
-  background-color: rgb(209, 209, 209);
+.product_tag:hover{
+    color:#B1AEAE;
 }
 
-.product > p {
-  margin: 0.5em 0;
+.product_price{
+    color:#342828;
+    opacity: 1;
+    transition: opacity 600ms, visibility 600ms;
 }
 
-.product:hover > .product_img {
-  opacity: 0.3;
+
+.product_img{
+    height: 240px;
+    width: 240px;
+    transition: 0.3s;
 }
 
-.product:hover .product_buttons {
-  display: flex;
-  top: 2em;
-  visibility: visible;
-  opacity: 1;
+.product_img:hover{
+    transform: scale(1.1)
 }
 
-.product_img {
-  width: 140px;
-  height: 140px;
+.product_add{
+    visibility:hidden;
+    position: absolute;
+    opacity: 0;
+    top:25em;
+    transition: opacity 600ms, visibility 600ms;
+    color: white;
+    background-color: white ;
+    color:#342828;
+    padding: 0.75em 1.25em;
+    border:0.1em rgb(199, 199, 199) solid;
+    transition: 0.3s;
+    border-radius: 5em;
+    font-weight: bold;
 }
 
-.top_sort {
-  margin: 0.5em;
+.product_add:hover{
+    background-color: #FE2F41;
+    color: white ;
 }
 
-.bottom_sort {
-  margin: 0.5em;
+/* PRODUCT AREA */
+
+/* SORTING AREA */
+
+.sorting_area{
+    flex-basis: 15%;
 }
 
-.other_area {
-  display: flex;
-  justify-content: center;
+.tags{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+/* SORTING AREA */
+
+
+
+/* SHOP AREA */
+

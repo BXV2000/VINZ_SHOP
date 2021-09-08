@@ -25,22 +25,16 @@ if(isset($_POST["action"]))
 		foreach($result as $row)
 		{
 			$output .= '
-                <form method="post" class="product" action="shop.php">
-                        <img
-                            src="./img/'.$row['hinh_anh'].'"
-                            alt="product_img"
-                            class="product_img"
-                        />
-                        <div class="product_buttons">
-                        <input type="hidden" name="id" value="'.$row['id_sp'].'">
-                        <input type="hidden" name="name" value="'.$row['ten_sp'].'">
-                        <input type="hidden"  name="price" value="'.$row['gia_sp'].'">
-                        <input type="submit" name="add" value="Thêm vào giỏ">
-                         
-                        </div>
-                        <p class="product_name">'. $row['ten_sp'] .'</p>
-                        <p class="product_price">'. $row['gia_sp'] .' VNĐ</p>
-                </form>
+            <form method="post" class="product" action="shop.php">
+                <img src="./img/'.$row['hinh_anh'].'" alt="" class="product_img">
+                <input type="hidden" name="id" value="'.$row['id_sp'].'">
+                <input type="hidden" name="name" value="'.$row['ten_sp'].'">
+                <input type="hidden"  name="price" value="'.$row['gia_sp'].'">
+                <h3 class="product_name">'. $row['ten_sp'] .'</h3>
+                <p class = "product_tag">'. $row['loai_sp'] .'</p>
+                <h3 class="product_price">'. $row['gia_sp'] .' VNĐ</h3>
+                <input class="product_add" type="submit" name="add" value="Thêm vào giỏ">
+            </form>
             ';
         }
     }
