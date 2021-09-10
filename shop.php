@@ -5,12 +5,9 @@ session_start();
 include('connection.php');
 
 if(isset($_POST['add'])){
-    // print_r($_POST['id']);
   
     if(isset($_SESSION['cart'])){
       $item_array_id=array_column($_SESSION['cart'],'id_sp');
-      print_r($item_array_id);
-      // print_r($_SESSION['cart']);
   
       if(in_array($_POST['id'],$item_array_id)){
           echo"<script>alert(`Hàng đã nằm trong giỏ`)</script>";
@@ -22,7 +19,6 @@ if(isset($_POST['add'])){
         );
   
         $_SESSION['cart'][$count] = $item_array;
-        print_r( $_SESSION['cart']);
   
       }
     }
@@ -32,7 +28,7 @@ if(isset($_POST['add'])){
         'id_sp'=>$_POST['id']
       );
       $_SESSION['cart'][0]=$item_array;
-      // print_r($_SESSION['cart']);
+
     }
   }
   

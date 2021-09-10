@@ -46,7 +46,6 @@ if(isset($_POST['remove'])){
                     <th class="quantity_column" style='color:#342828'>Số lượng</th>
                     <th class="total_column" style='color:#342828'>Tổng tiền</th>
                 </tr>
-                
                 <?php
                 $query = "SELECT * FROM san_pham WHERE tinh_trang = '1'";
                 $product_id=array_column($_SESSION['cart'],'id_sp');
