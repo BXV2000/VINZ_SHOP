@@ -1,6 +1,4 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost;dbname=nlcs", "root", "root");
-
-
+$connect = new mysqli("localhost","root","root","quanlydathang");
 ?>

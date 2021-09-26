@@ -10,14 +10,13 @@
     <body>
     <div class="login_container">
       <div class="contact_area"> 
-        <a href="index.php"><img src="./img/logo.jpg" alt="Logo" /></a>
+        <a href="index.php" ><img src="./img/logo.jpg" alt="Logo" /></a>
       </div>
       <div class="function_area">
-        <a href="index.php"><b>Trang chủ</b></a>
-        <a href="shop.php"><b>Shop</b></a>
-        <a href=""><b>Đăng nhập</b></a>
-        <a href=""><b>Đăng kí</b></a>
-        <a href="cart.php"><i class="fas fa-shopping-cart">
+        <a href="index.php" ><b>Trang chủ</b></a>
+        <a href="shop.php" ><b>Cửa hàng</b></a>
+        
+        <a href="cart.php" ><i class="fas fa-shopping-cart">
         <span id="cart_number">
         <?php
         

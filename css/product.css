@@ -9,18 +9,28 @@ body{
     margin-bottom: 100px;
 }
 
-
-
-/* LABEL AREA  */
-
-.label_area{
-    padding: 2em 10em;
-    background-color: #F9F9FA;
-    border: 0.1em rgb(186, 186, 186);
-    border-style: dashed none;
+.basic_button{
+    text-decoration: none;
+    color: white !important;
+    font-family: "Arimo";
+    font-size: 16px;
+    background-color: #FE2F41;
+    padding: 1em 2em;
+    border-radius: 5em;
+    border:0.1em transparent solid;
+    transition: 0.3s;
+    max-width: 10em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
-/* LABEL AREA  */
+.basic_button:hover{
+    border-color: gray;
+    background-color: transparent;
+    color: #342828 !important;
+}
 
 /* -------------------------------------------------------- */
 
@@ -31,7 +41,115 @@ body{
     flex-direction: row;
     margin: 5em 0;
     justify-content: center;
+    margin-top: 15em;
 }
+
+
+
+/* ITEM AREA */
+
+.item_area{
+    flex-basis: 65%;
+}
+
+.item_top{
+    display: flex;
+    flex-direction: row;
+}
+
+.item_img{
+    width: 23em;
+    height: 23em;
+}
+
+.item_detail_top{
+    padding: 0em 5em;
+    display: flex;
+    flex-direction:column ;
+}
+
+
+.item_detail_top>p{
+    margin-top: 2em;
+    line-height: 26px;
+    color: #6d6565;
+    font-size: 18px;
+}   
+.item_detail_top>h2{
+   font-size: 28px;
+   margin-bottom: 0;
+}  
+
+.item_tag{
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+    transition: 0.3s;
+}
+
+.item_tag:hover{
+   color: grey;
+}
+
+.item_bottom{
+    margin-top: 5em;
+    padding: 0em 2em;
+}
+
+.item_bottom_label{
+    font-size: 20px;
+    color: #FE2F41;
+}
+
+.item_bottom_detail{
+    line-height: 26px;
+    color: #6d6565;
+    font-size: 18px;
+}
+
+/* ITEM AREA */
+
+/* SORTING AREA */
+
+.sidebar{
+    flex-basis: 15%;
+    
+}
+
+.sorting_label{
+    position: relative;
+}
+
+.area_label_text::before{
+    content: "";
+    position: absolute;
+    height: 5px;
+    top:90%;
+    width: 20px;
+    background-color: #8BD25A;
+    border-radius: 5em;
+}
+.sort_categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.sort_category{
+    text-decoration: none;
+    color: #342828;
+    font-size: 18px;
+    margin: 0.5em 0;
+    font-weight: 300;
+}
+
+.sort_category:hover{
+   color: #4f4f4f;;
+}
+
+/* SORTING AREA */
+
+
+
+/* SHOP AREA */
 
 /* PRODUCT AREA */
 
@@ -83,14 +201,12 @@ body{
     color:#B1AEAE;
 }
 
-
 .product_tag{
     margin:0.5em 0;
     color:#342828;
     transition: 0.3s;
     text-decoration: none;
 }
-
 
 .product_tag:hover{
     color:#B1AEAE;
@@ -117,7 +233,7 @@ body{
     visibility:hidden;
     position: absolute;
     opacity: 0;
-    top:24.5em;
+    top:25em;
     transition: opacity 600ms, visibility 600ms;
     color: white;
     background-color: white ;
@@ -134,49 +250,5 @@ body{
     color: white ;
 }
 
+
 /* PRODUCT AREA */
-
-/* SORTING AREA */
-
-.sidebar{
-    flex-basis: 15%;
-    
-}
-
-.sorting_label{
-    position: relative;
-}
-
-.area_label_text::before{
-    content: "";
-    position: absolute;
-    height: 5px;
-    top:90%;
-    width: 20px;
-    background-color: #8BD25A;
-    border-radius: 5em;
-}
-
-.sort_categories{
-    display: flex;
-    flex-direction: column;
-}
-
-.sort_category{
-    text-decoration: none;
-    color: #342828;
-    font-size: 18px;
-    margin: 0.5em 0;
-    font-weight: 300;
-}
-
-.sort_category:hover{
-   color: #4f4f4f;;
-}
-
-/* SORTING AREA */
-
-
-
-/* SHOP AREA */
-

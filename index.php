@@ -3,10 +3,9 @@
 session_start();
 
 ?>
-
 <html>
   <head>
-    <title>Test</title>
+    <title>VINZ - TRANG CHỦ</title>
     <style>
       <?php include 'css/index.css'; ?>
     </style>
@@ -53,7 +52,8 @@ session_start();
         </div>
       </div>
     </div>
-    <div>Footer</div>
+    
   </div>
+  <?php include 'footer.php'; ?>
   </body>
 </html>
