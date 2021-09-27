@@ -15,7 +15,7 @@
       <div class="function_area">
         <a href="index.php" ><b>Trang chủ</b></a>
         <a href="shop.php" ><b>Cửa hàng</b></a>
-        
+        <a href="auto_shop.php"><b>Tự động mua hàng</b></a>
         <a href="cart.php" ><i class="fas fa-shopping-cart">
         <span id="cart_number">
         <?php

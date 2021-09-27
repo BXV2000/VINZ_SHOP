@@ -24,6 +24,10 @@ body{
 
 /* -------------------------------------------------------- */
 
+
+
+
+
 /* SHOP AREA */
 
 .shop_area{
@@ -33,7 +37,8 @@ body{
     justify-content: center;
 }
 
-/* PRODUCT AREA */
+
+
 
 .product_area{
     flex-basis: 65%;
