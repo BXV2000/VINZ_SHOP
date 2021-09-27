@@ -29,11 +29,8 @@ if(isset($_POST['add'])){
     }
 }
 
-if(isset($_GET['smart_sort'])){
-    $category= $_GET['smart_category'];
-    var_dump($category);
-    
-}
+
+
 
 
 
@@ -51,7 +48,7 @@ if(isset($_GET['smart_sort'])){
     <title>VINZ - CƯA HÀNG</title>
 </head>
 <body>
-    <!-- <?php include 'login.php'; ?> -->
+    <?php include 'login.php'; ?>
     <div class="shop_container">
         <div class="label_area">
             <h1>CỬA HÀNG TỰ ĐỘNG</h1>
@@ -75,6 +72,7 @@ if(isset($_GET['smart_sort'])){
                         }
                     ?>
                 </select>
+               
                 <input type="number" id="smart_money" name="smart_money" class="criteria_money" placeholder="Số tiền cần nhập" >
                 <input type="number" id="smart_spare" name="smart_spare" disabled class="criteria_money" placeholder="Tiền thừa" >
                 <input type="submit" name="smart_sort" class="basic_button" id="calculate_btn"value="Tính toán">
@@ -82,7 +80,10 @@ if(isset($_GET['smart_sort'])){
                 
                 <div class="products">
                     <?php  
-                    $query = 'SELECT hanghoa.MSHH, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh,hanghoa.MaLoaiHang    
+                    if(isset($_GET['smart_sort'])){
+                    $category= $_GET['smart_category'];
+                    $input_cash=$_GET['smart_money'];   
+                    $query = 'SELECT hanghoa.MSHH,hanghoa.DinhDuong, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh,hanghoa.MaLoaiHang    
                      FROM hanghoa 
                      JOIN loaihanghoa ON hanghoa.MaLoaiHang = loaihanghoa.MaLoaiHang
                      JOIN hinhhanghoa  ON hinhhanghoa.MSHH = hanghoa.MSHH
@@ -96,7 +97,7 @@ if(isset($_GET['smart_sort'])){
 		                foreach($result as $row)
 		                {
                         ?>
-                            <form method="post" class="product" action="shop.php">
+                            <form method="post" class="product none" action="./auto_shop.php?smart_category=<?php echo $category?>&smart_money=<?php echo $input_cash?>&smart_sort=Tính+toán">
                                 <a href="./product.php?id=<?php echo $row['MSHH']?>"target="_blank"><img src="./img/<?php echo $row['TenHinh']?>"  alt="" class="product_img"></a>
                                 <input type="hidden" name="id" value="<?php echo $row['MSHH']?>">
                                 <input type="hidden" name="name" value="<?php echo $row['TenHH']?>">
@@ -111,10 +112,12 @@ if(isset($_GET['smart_sort'])){
                         }
                     }
                     else
-                    {
+                    {   
                         echo '<h3>No data found</h3>';
                     }
+                }
                     ?>
+                     <input type="hidden" id="hidden_money" value="<?php echo $input_cash?>">
                 </div>
             </div>
             <div class="sidebar">
@@ -147,7 +150,7 @@ if(isset($_GET['smart_sort'])){
             let category = document.getElementById( "smart_category").value;
             let error="";
             console.log(category);
-            if(category===0){
+            if(category==='0'){
                 error="Vui lòng chọn danh mục";
             }
             if(money.length<=0){
@@ -157,8 +160,38 @@ if(isset($_GET['smart_sort'])){
                 alert(error);
                 return false;
             }
-            
         }
+
+        function sorting(array){
+            for (let i = 0; i < array.length; i++) {
+                for (let x = 0; x < array.length - 1 - i; x++) {
+                if (array[x][1] > array[x + 1][1]) {
+                    [array[x], array[x + 1]] = [array[x + 1], array[x]];
+                }
+                }
+            }
+            return array;
+        }
+
+        function smartBuy(){
+            let tsdd=[];
+            let cashInput=document.getElementById("hidden_money").value;
+            let itemList= document.getElementsByClassName("product");
+            let itemPriceList= document.querySelectorAll('input[name="price"]');
+            let itemNutritionList= document.querySelectorAll('input[name="nutrition"]');
+                for(let i = 0 ;i<itemList.length;i++){
+                    tsdd.push([i,itemNutritionList[i].value/itemPriceList[i].value])
+                }
+            sorting(tsdd);
+                for(let j =0;j<tsdd.length;j++){
+                    if(cashInput-itemPriceList[tsdd[j][0]].value>0){
+                        itemList[tsdd[j][0]].classList.remove("none");
+                        cashInput =cashInput-itemPriceList[tsdd[j][0]].value;
+                    }
+                }
+                document.getElementById("smart_spare").value=cashInput;
+        }
+        smartBuy()
         document.getElementById("smart_form").onsubmit = function() {
             return inputValidation();
         };

@@ -88,6 +88,7 @@ body{
 
 .product_area{
     flex-basis: 65%;
+    min-height: 25em;
 }
 
 .products{
@@ -192,6 +193,10 @@ body{
 .sidebar{
     flex-basis: 15%;
     
+}
+
+.none{
+    display:none !important;
 }
 
 .sorting_label{
