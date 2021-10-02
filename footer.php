@@ -14,7 +14,7 @@
     <div class="footer_container">
         <div class="top_section">
             <div class="logo_area">
-                <img src="./img/logo.jpg" alt="">
+                <img src="./img/logo.jpg" class="footer_logo" alt="">
             </div>
             <div class="extra_area">
                 <h2><b>Liên kết khác</b></h2>
