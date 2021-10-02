@@ -22,6 +22,10 @@ body{
     margin-bottom: 5em;
 }
 
+.footer_logo{
+    border-radius: 15em;
+}
+
 .extra_area{
     margin: 0 10em;
     display: flex;
