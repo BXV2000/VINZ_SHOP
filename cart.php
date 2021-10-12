@@ -78,13 +78,14 @@ if(isset($_POST['checkout'])){
                     <th class="name_column" style='color:#342828'>Sản phẩm</th>
                     <th class="price_column" style='color:#342828'>Giá</th>
                     <th class="quantity_column" style='color:#342828'>Số lượng</th>
+                    <th class="quantity_column" style='color:#342828'>Tồn kho</th>
                     <th class="total_column" style='color:#342828'>Tổng tiền</th>
                 </tr>
                 <?php
                 
                 if(isset($_SESSION['cart']))
                 {
-                $query = 'SELECT hanghoa.MSHH, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh    
+                $query = 'SELECT hanghoa.MSHH,hanghoa.SoLuongHang, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh    
                 FROM hanghoa 
                 JOIN loaihanghoa ON hanghoa.MaLoaiHang = loaihanghoa.MaLoaiHang
                 JOIN hinhhanghoa  ON hinhhanghoa.MSHH = hanghoa.MSHH
@@ -108,6 +109,7 @@ if(isset($_POST['checkout'])){
                                 <td class="name_column"><a href="./product.php?id=<?php echo $row['MSHH']; ?> " target="_blank" class="item_name"><?php echo $row['TenHH']; ?></a></td>
                                 <td class="price_column"><p class="item_price"><?php echo $row['Gia']; ?> VNĐ</p></td>
                                 <td class="quantity_column"><input type="number" class='item_quantity' name='quantity' value='1' ></td>
+                                <td class="quantity_column"><input type="number" class='item_stock ' name='item_stock' disabled value='<?php echo $row['SoLuongHang']; ?>' ></td>
                                 <td class="total_column"><input type="text" class='item_total' value="" disabled></td>
                             </tr>   
                             </form>
@@ -178,18 +180,29 @@ if(isset($_POST['checkout'])){
         function updateProductList(){
             let itemList = document.getElementsByClassName("cart_product_id");
             let itemQuantity = document.getElementsByClassName("check_out_quantity");
+            let itemStock =document.getElementsByClassName("item_stock");
             let itemPrice = document.getElementsByClassName("check_out_price");
             let itemTotal = document.getElementsByClassName("check_out_total");
             let itemQuantityField = document.getElementsByClassName("item_quantity");
             document.getElementById("check_out_items").value = itemList.length;
-            for(let i = 0; i<itemList.length;i++){
+            for(let i = 0; i<itemQuantityField.length;i++){
                 itemQuantityField[i].addEventListener("change",()=>{
+                    if( parseInt(itemQuantityField[i].value)>parseInt(itemStock[i].value)){
+                        itemQuantityField[i].value=1;
+                        itemQuantity[i].value = itemQuantityField[i].value;
+                        itemTotal[i].value = itemQuantity[i].value*itemPrice[i].value;
+                        alert("Sô lượng nhập vượt tồn kho");
+                       
+                    }
+                    else{
                     itemQuantity[i].value = itemQuantityField[i].value;
                     itemTotal[i].value = itemQuantity[i].value*itemPrice[i].value;
+                    }
+                    
                 });
             }    
-        }
 
+        }
         function getItemQuantity(){
             itemList = document.getElementsByClassName("cart_product_id");
             if(getItemQuantity.length===0){
@@ -246,7 +259,6 @@ if(isset($_POST['checkout'])){
 
         function checkCart(){
             let cart_item = document.getElementById("check_out_items").value;
-            console.log(cart_item)
             if(cart_item==0){
                 document.getElementsByClassName('detail_area')[0].classList.add("none");
                 console.log(document.getElementsByClassName('detail_area')[0])

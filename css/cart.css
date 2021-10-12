@@ -63,6 +63,12 @@ table{
     max-width: 4em;
 }
 
+.item_stock{
+    max-width: 4em;
+    border:0;
+    background-color: transparent;
+}
+
 .item_total{
     border:0;
     background-color: transparent;
