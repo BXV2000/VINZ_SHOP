@@ -156,17 +156,36 @@ body{
     background-color: #8BD25A;
     border-radius: 5em;
 }
+.product_search_form{
+    display: flex;
+}
 
 .search_product_input{
-    padding: 1em;
-    width: 15em;
-    border-radius: 3em;
+    padding: 1.2em 2em;
+    width: 11em;
+    border-radius: 3em 0em 0em 3em;
     border: 0.1em gray solid;
+    border-right: none;
 }
 
 .search_product_input:focus{
     outline: none;
     border-color: black;
+}
+
+.search_product_btn{
+    border-radius: 0em 3em 3em 0em;
+    width: 4em;
+    border: 0.1em gray solid;
+    border-left: none;
+    background-color: #FE2F41;
+    color: white;
+    transition: 0.3s;
+}
+
+.search_product_btn:hover{
+    background-color: white;
+    color:#FE2F41 ;
 }
 
 .sort_categories{

@@ -100,9 +100,9 @@ if(isset($_POST['add'])){
                 <div class="sorting_label">
                     <h2 class="area_label_text">Tìm kiếm sản phẩm</h2>
                 </div>
-                <form action="shop.php" method="GET">
+                <form action="shop.php" method="GET" class="product_search_form">
                     <input type="text" class="search_product_input" name="product_name_input">
-                    <button type="submit" name="search_product"><i class="fas fa-search"></i></button>
+                    <button type="submit" name="search_product" class='search_product_btn'><i class="fas fa-search"></i></button>
                 </form>
                 <div class="sorting_label">
                     <h2 class="area_label_text">Danh mục sản phẩm</h2>
