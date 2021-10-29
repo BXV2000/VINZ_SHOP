@@ -28,7 +28,7 @@ if(isset($_POST['add'])){
 
     }
   }
-  $query_product = "SELECT hanghoa.MSHH, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh,hanghoa.MaLoaiHang    
+  $query_product = "SELECT hanghoa.MSHH,hanghoa.QuyCach, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh,hanghoa.MaLoaiHang    
                      FROM hanghoa 
                      JOIN loaihanghoa ON hanghoa.MaLoaiHang = loaihanghoa.MaLoaiHang
                      JOIN hinhhanghoa  ON hinhhanghoa.MSHH = hanghoa.MSHH
@@ -60,7 +60,7 @@ if(isset($_POST['add'])){
                     <div class="item_detail_top">
                         <h2><?php echo $product['TenHH']?></h2>
                         <h2><?php echo $product['Gia']?>&nbspVNĐ</h2>
-                        <p>Hảo Hảo là một thương hiệu mì ăn liền được tạo ra bởi Acecook Việt Nam, ra mắt lần đầu trên thị trường từ những năm thập niên 2000.</p>
+                        <p><?php echo $product['QuyCach']?></p>
                         <form method="post" class="" action="/B1805937_BXVINH/GUEST/product.php?id=<?php echo $product['MSHH']?>">
                             <input type="hidden" name="id" value="<?php echo $product['MSHH']?>">
                             <input type="hidden" name="name" value="<?php echo $product['TenHH']?>">

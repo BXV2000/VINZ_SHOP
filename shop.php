@@ -3,6 +3,8 @@
 session_start();
 include('connection.php');
  
+global $product_name;
+
 if(isset($_POST['add'])){
   
     if(isset($_SESSION['cart'])){
@@ -29,6 +31,11 @@ if(isset($_POST['add'])){
     }
   }
 
+  if(isset($_GET['search_product'])){
+    $product_name="";
+     $product_name=$_GET['product_name_input'];
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,11 +58,15 @@ if(isset($_POST['add'])){
             <div class="product_area">
                 <div class="products">
                     <?php  
+                    $query_product_name="";
+                    if($product_name!='0'&&$product_name!=null){
+                        $query_product_name =" AND hanghoa.TenHH LIKE'%$product_name%'";
+                    }
                     $query = 'SELECT hanghoa.MSHH, hanghoa.TenHH,hanghoa.Gia,loaihanghoa.TenLoaiHang,hinhhanghoa.TenHinh,hanghoa.MaLoaiHang    
                      FROM hanghoa 
                      JOIN loaihanghoa ON hanghoa.MaLoaiHang = loaihanghoa.MaLoaiHang
                      JOIN hinhhanghoa  ON hinhhanghoa.MSHH = hanghoa.MSHH
-                     WHERE SoLuongHang > "0"
+                     WHERE SoLuongHang > "0" '.$query_product_name.' 
                      ORDER BY tenHH ASC' ;
                     $result = mysqli_query($connect,$query);
                     mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -86,6 +97,13 @@ if(isset($_POST['add'])){
                 </div>
             </div>
             <div class="sidebar">
+                <div class="sorting_label">
+                    <h2 class="area_label_text">Tìm kiếm sản phẩm</h2>
+                </div>
+                <form action="shop.php" method="GET">
+                    <input type="text" class="search_product_input" name="product_name_input">
+                    <button type="submit" name="search_product"><i class="fas fa-search"></i></button>
+                </form>
                 <div class="sorting_label">
                     <h2 class="area_label_text">Danh mục sản phẩm</h2>
                 </div>

@@ -157,6 +157,18 @@ body{
     border-radius: 5em;
 }
 
+.search_product_input{
+    padding: 1em;
+    width: 15em;
+    border-radius: 3em;
+    border: 0.1em gray solid;
+}
+
+.search_product_input:focus{
+    outline: none;
+    border-color: black;
+}
+
 .sort_categories{
     display: flex;
     flex-direction: column;
