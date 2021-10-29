@@ -166,6 +166,8 @@ body{
     border-radius: 3em 0em 0em 3em;
     border: 0.1em gray solid;
     border-right: none;
+    font-family: 'Arimo';
+    font-size: 16px;
 }
 
 .search_product_input:focus{
