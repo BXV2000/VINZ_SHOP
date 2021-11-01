@@ -28,9 +28,11 @@ if(isset($_POST['checkout'])){
     $result_get_mskh=mysqli_query($connect,$query_get_mskh);
     $row = mysqli_fetch_row($result_get_mskh);
     $max_mskh = $row[0];
+    
     $query_diachi = "INSERT INTO `diachikh` (`MaDC`, `DiaChi`, `MSKH`) VALUES (NULL, '$DiaChi', '$max_mskh');";
     $result_diachi=mysqli_query($connect,$query_diachi);
-    $query_dathang = "INSERT INTO `dathang` (`MSKH`, `MSNV`) VALUES ('$max_mskh', '1');";
+    $query_dathang = 'INSERT INTO dathang (MSKH, MSNV) VALUES ('.$max_mskh.', 1);';
+
     $result_diachi=mysqli_query($connect,$query_dathang);
     $query_get_sddh = "SELECT MAX(SoDonDH) AS max_sddh FROM dathang;";
     $result_get_sddh=mysqli_query($connect,$query_get_sddh);
